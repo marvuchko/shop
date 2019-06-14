@@ -8,31 +8,19 @@ import java.util.List;
 
 @Entity
 @Table(name = "order_list")
-public class OrderList extends Base {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class PurchaseList extends Base {
 
     @ManyToOne
     @JoinColumn(name = "id_shop_user")
     private User user;
 
-    @OneToMany(mappedBy = "orderList")
-    private List<Order> orders;
+    @OneToMany(mappedBy = "purchaseList")
+    private List<Purchase> orders;
 
     private Float totalPrice;
 
-    public OrderList() {
+    public PurchaseList() {
         super();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public User getUser() {
@@ -43,11 +31,11 @@ public class OrderList extends Base {
         this.user = user;
     }
 
-    public List<Order> getOrders() {
+    public List<Purchase> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrders(List<Purchase> orders) {
         this.orders = orders;
     }
 

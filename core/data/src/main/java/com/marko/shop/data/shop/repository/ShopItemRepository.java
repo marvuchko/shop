@@ -1,7 +1,10 @@
 package com.marko.shop.data.shop.repository;
 
-import com.marko.shop.data.shop.entity.ShopItem;
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ShopItemRepository extends JpaRepository<ShopItem, Long> {
+import com.marko.shop.data.shop.entity.ShopItem;
+
+public interface ShopItemRepository extends JpaRepository<ShopItem, UUID> {
 }

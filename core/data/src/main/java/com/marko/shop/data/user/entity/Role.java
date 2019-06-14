@@ -1,17 +1,20 @@
 package com.marko.shop.data.user.entity;
 
-import com.marko.shop.data.base.Base;
-
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import com.marko.shop.data.base.Base;
 
 @Entity
 @Table(name = "role")
 public class Role extends Base {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column(length = 120)
     private String caption;
@@ -31,14 +34,6 @@ public class Role extends Base {
 
     public Role() {
         super();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getCaption() {

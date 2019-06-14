@@ -1,18 +1,20 @@
 package com.marko.shop.data.user.entity;
 
-import com.marko.shop.data.base.Base;
-import com.marko.shop.data.shop.entity.OrderList;
-
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.marko.shop.data.base.Base;
+import com.marko.shop.data.shop.entity.PurchaseList;
 
 @Entity
 @Table(name = "shop_user")
 public class User extends Base {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column(length = 120)
     private String firstName;
@@ -24,23 +26,18 @@ public class User extends Base {
     private String userName;
 
     private String password;
+    
+    @Lob
+    private String imageUrl;
 
     @OneToMany(mappedBy = "user")
-    private List<OrderList> orderLists;
+    private List<PurchaseList> orderLists;
 
     @ManyToMany(mappedBy = "users")
     private List<Role> roles;
 
     public User() {
         super();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -75,11 +72,11 @@ public class User extends Base {
         this.password = password;
     }
 
-    public List<OrderList> getOrderLists() {
+    public List<PurchaseList> getOrderLists() {
         return orderLists;
     }
 
-    public void setOrderLists(List<OrderList> orderLists) {
+    public void setOrderLists(List<PurchaseList> orderLists) {
         this.orderLists = orderLists;
     }
 

@@ -3,14 +3,31 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.marko</groupId>
-	    <artifactId>core</artifactId>
-	    <version>0.0.1-SNAPSHOT</version>
-	</parent>
-
-	<groupId>com.marko</groupId>
 	<artifactId>service</artifactId>
 	<name>${project.artifactId}</name>
+
+	<parent>
+		<groupId>com.marko</groupId>
+		<artifactId>core</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.marko</groupId>
+			<artifactId>data</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.marko</groupId>
+			<artifactId>security</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.marko</groupId>
+			<artifactId>infrastructure-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 
 </project>

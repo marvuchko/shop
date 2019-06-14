@@ -1,12 +1,22 @@
 package com.marko.shop.data.base;
 
+import java.util.Date;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.util.Date;
-
+@MappedSuperclass
 public class Base {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
     @CreationTimestamp
     private Date createdAt;
 
@@ -17,7 +27,15 @@ public class Base {
         super();
     }
 
-    public Date getCreatedAt() {
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getCreatedAt() {
         return createdAt;
     }
 

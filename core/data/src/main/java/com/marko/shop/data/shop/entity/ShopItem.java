@@ -1,40 +1,35 @@
 package com.marko.shop.data.shop.entity;
 
-import com.marko.shop.data.base.Base;
-
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.marko.shop.data.base.Base;
 
 @Entity
 @Table(name = "shop_item")
 public class ShopItem extends Base {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column(length = 120)
     private String name;
 
+    @Lob
     private String description;
 
+    @Lob
     private String imageUrl;
 
     private Float price;
 
     @OneToMany(mappedBy = "shopItem")
-    private List<Order> orders;
+    private List<Purchase> purchases;
 
     public ShopItem() {
         super();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -69,11 +64,11 @@ public class ShopItem extends Base {
         this.price = price;
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
+	public List<Purchase> getPurchases() {
+		return purchases;
+	}
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
+	}
 }

@@ -3,24 +3,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-    <packaging>pom</packaging>
+	<artifactId>core</artifactId>
+	<name>${project.artifactId}</name>
+
+	<packaging>pom</packaging>
 
 	<parent>
 		<groupId>com.marko</groupId>
-	    <artifactId>shop</artifactId>
-	    <version>0.0.1-SNAPSHOT</version>
+		<artifactId>shop</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-    <modules>
+	<modules>
 		<module>api</module>
 		<module>data</module>
-        <module>security</module>
+		<module>security</module>
 		<module>service</module>
-        <module>ui</module>
+		<module>ui</module>
 	</modules>
-
-	<groupId>com.marko</groupId>
-	<artifactId>core</artifactId>
-	<name>${project.artifactId}</name>
 
 </project>
