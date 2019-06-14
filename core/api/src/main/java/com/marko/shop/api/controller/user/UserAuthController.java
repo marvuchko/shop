@@ -16,7 +16,7 @@ import com.marko.shop.data.user.entity.User;
 import com.marko.shop.service.user.UserAuthService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 public class UserAuthController {
 
 	private final UserAuthService userAuthService;

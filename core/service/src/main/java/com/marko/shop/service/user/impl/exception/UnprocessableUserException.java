@@ -3,10 +3,10 @@ package com.marko.shop.service.user.impl.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.marko.shop.common.exception.HttpRuntimeException;
+import com.marko.shop.common.exception.AbstractHttpRuntimeException;
 
 @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-public class UnprocessableUserException extends HttpRuntimeException {
+public class UnprocessableUserException extends AbstractHttpRuntimeException {
 
 	private static final long serialVersionUID = 8951891413889164809L;
 	

@@ -1,8 +1,8 @@
 package com.marko.shop.service.user.impl.exception;
 
-import com.marko.shop.common.exception.HttpRuntimeException;
+import com.marko.shop.common.exception.AbstractHttpRuntimeException;
 
-public class UnauthorizedUserException extends HttpRuntimeException {
+public class UnauthorizedUserException extends AbstractHttpRuntimeException {
 
 	private static final long serialVersionUID = -4748347992620094414L;
 	

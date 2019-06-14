@@ -14,23 +14,24 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.marko.shop.api.controller.advice.dto.ErrorDto;
-import com.marko.shop.common.exception.HttpRuntimeException;
+import com.marko.shop.common.exception.AbstractHttpRuntimeException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-	@ExceptionHandler(HttpRuntimeException.class)
+	@ExceptionHandler(AbstractHttpRuntimeException.class)
 	public ResponseEntity<ErrorDto> handleHttpRuntimeException(
-			HttpRuntimeException ex, HttpServletRequest httpServletRequest
+			AbstractHttpRuntimeException ex, HttpServletRequest httpServletRequest
 	) {
 		ErrorDto errorDto = new ErrorDto();
 		errorDto.setHttpStatus(ex.getHttpStatus().value());
 		errorDto.setMessages(Arrays.asList(ex.getMessage()));
-		errorDto.setPath(httpServletRequest.getPathInfo());
+		errorDto.setPath(httpServletRequest.getRequestURL().toString());
 		return new ResponseEntity<>(errorDto, ex.getHttpStatus());
 	}
 	
@@ -42,10 +43,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		final List<FieldError> fieldErrors = ex.getBindingResult().getFieldErrors();
 		List<String> messages = fieldErrors.stream().map(FieldError::getDefaultMessage)
 				.collect(Collectors.toList());
+		String requestPath = ((ServletWebRequest) request).getRequest().getRequestURL().toString();
 		ErrorDto errorDto = new ErrorDto();
 		errorDto.setHttpStatus(status.value());
 		errorDto.setMessages(messages);
-		errorDto.setPath(request.getContextPath());
+		errorDto.setPath(requestPath);
 	    return new ResponseEntity<>(messages.isEmpty() ? ex : errorDto, headers, status);
 	}
 
