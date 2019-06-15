@@ -1,4 +1,4 @@
-package com.marko.shop.common.exception;
+package com.marko.shop.infrastructure.common.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

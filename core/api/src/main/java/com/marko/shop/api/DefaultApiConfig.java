@@ -1,17 +1,18 @@
 package com.marko.shop.api;
 
+import java.util.Arrays;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
 import com.marko.shop.api.controller.ControllerPackage;
-
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
+import springfox.documentation.service.Tag;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -34,7 +35,8 @@ public class DefaultApiConfig {
            .paths(PathSelectors.regex("/.*"))                          
            .build()
            .apiInfo(apiEndPointsInfo())
-           .pathProvider(new ApiPathProvider(contextPath));                                           
+           .pathProvider(new ApiPathProvider(contextPath))
+           .tags(tags()[0]);                                           
     }
 	
 	private ApiInfo apiEndPointsInfo() {
@@ -46,5 +48,11 @@ public class DefaultApiConfig {
            .version("1.0.0")
            .build();
     }
+	
+	private Tag[] tags() {
+	    return new Tag[] {
+	        new Tag("User Authentication Controller", "Performs user login and registration.")
+	    };
+	}
 	
 }

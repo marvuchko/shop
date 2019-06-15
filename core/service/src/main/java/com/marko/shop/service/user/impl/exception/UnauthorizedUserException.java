@@ -1,6 +1,6 @@
 package com.marko.shop.service.user.impl.exception;
 
-import com.marko.shop.common.exception.AbstractHttpRuntimeException;
+import com.marko.shop.infrastructure.common.exception.AbstractHttpRuntimeException;
 
 public class UnauthorizedUserException extends AbstractHttpRuntimeException {
 

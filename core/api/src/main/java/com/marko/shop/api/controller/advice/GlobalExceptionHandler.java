@@ -19,7 +19,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.marko.shop.api.controller.advice.dto.ErrorDto;
-import com.marko.shop.common.exception.AbstractHttpRuntimeException;
+import com.marko.shop.infrastructure.common.exception.AbstractHttpRuntimeException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {

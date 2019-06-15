@@ -17,7 +17,16 @@ public interface UserAuthService {
 	 * 
 	 * @return registrated user
 	 */
-	User register(User user);
+	User registerUser(User user);
+	
+	/**
+	 * Register a new employee.
+	 * 
+	 * @param employee new employee to be registred in the system
+	 * 
+	 * @return registrated employee
+	 */
+	User registerEmployee(User employee);
 	
 	/**
 	 * Logs in to the system with username and password
