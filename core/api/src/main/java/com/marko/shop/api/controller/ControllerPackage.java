@@ -5,8 +5,5 @@ package com.marko.shop.api.controller;
  * scanning.
  * 
  * @author Marko Vuckovic
- *
  */
-public interface ControllerPackage {
-
-}
+public interface ControllerPackage {}

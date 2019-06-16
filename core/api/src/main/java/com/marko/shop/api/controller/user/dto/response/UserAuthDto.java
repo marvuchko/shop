@@ -1,7 +1,10 @@
 package com.marko.shop.api.controller.user.dto.response;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -26,6 +29,12 @@ public class UserAuthDto {
 	
     @ApiModelProperty("Image URL of the authentified user.")
 	private String imageUrl;
+    
+    @ApiModelProperty("The date user has been created.")
+    private Date createdAt;
+    
+    @ApiModelProperty("The date user has been updated.")
+    private Date updatedAt;
 
 	public UserAuthDto() {
 		super();
@@ -77,6 +86,22 @@ public class UserAuthDto {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 	
 }

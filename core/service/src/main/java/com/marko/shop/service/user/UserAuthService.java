@@ -1,6 +1,8 @@
 package com.marko.shop.service.user;
 
+import com.marko.shop.data.user.entity.RoleType;
 import com.marko.shop.data.user.entity.User;
+import com.marko.shop.infrastructure.security.JwtToken;
 
 /**
  * Manages user registration and login.
@@ -17,16 +19,7 @@ public interface UserAuthService {
 	 * 
 	 * @return registrated user
 	 */
-	User registerUser(User user);
-	
-	/**
-	 * Register a new employee.
-	 * 
-	 * @param employee new employee to be registred in the system
-	 * 
-	 * @return registrated employee
-	 */
-	User registerEmployee(User employee);
+	User register(User user, RoleType type);
 	
 	/**
 	 * Logs in to the system with username and password
@@ -36,8 +29,17 @@ public interface UserAuthService {
 	 * 
 	 * @param password passowrd of the user account
 	 * 
-	 * @return existing user
+	 * @return JWT tokens
 	 */
-	User logIn(String username, String password);
+	JwtToken logIn(String username, String password);
+
+	/**
+	 * Refreshes the access and refresh token of an user.
+	 * 
+	 * @param refreshToken refresh token of an user
+	 * 
+	 * @return JWT tokens
+	 */
+	JwtToken refreshTokens(String refreshToken);
 	
 }

@@ -18,7 +18,6 @@
 		<module>infrastructure-common</module>
 		<module>infrastructure-security</module>
 		<module>infrastructure-data</module>
-		<module>infrastructure-ui</module>
 	</modules>
 
 </project>

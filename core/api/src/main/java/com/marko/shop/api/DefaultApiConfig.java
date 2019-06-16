@@ -1,12 +1,12 @@
 package com.marko.shop.api;
 
-import java.util.Arrays;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+
 import com.marko.shop.api.controller.ControllerPackage;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -36,7 +36,7 @@ public class DefaultApiConfig {
            .build()
            .apiInfo(apiEndPointsInfo())
            .pathProvider(new ApiPathProvider(contextPath))
-           .tags(tags()[0]);                                           
+           .tags(tags()[0], tags());                                           
     }
 	
 	private ApiInfo apiEndPointsInfo() {
@@ -51,7 +51,9 @@ public class DefaultApiConfig {
 	
 	private Tag[] tags() {
 	    return new Tag[] {
-	        new Tag("User Authentication Controller", "Performs user login and registration.")
+	        new Tag("Authentication Controller", "Performs user login and registration."),
+	        new Tag("Role Controller", "Allows managing the data about user roles."),
+	        new Tag("Shop Item Controller", "Allows managing the data about shop items.")
 	    };
 	}
 	

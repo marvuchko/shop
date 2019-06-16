@@ -2,8 +2,11 @@ package com.marko.shop.data.user.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -33,7 +36,14 @@ public class User extends Base {
     @OneToMany(mappedBy = "user")
     private List<PurchaseList> orderLists;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "user_has_role",
+            joinColumns = @JoinColumn(name = "id_shop_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_role")
+    )
     private List<Role> roles;
 
     public User() {

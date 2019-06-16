@@ -19,7 +19,6 @@
 		<module>data</module>
 		<module>security</module>
 		<module>service</module>
-		<module>ui</module>
 	</modules>
 
 </project>

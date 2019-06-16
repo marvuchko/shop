@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EntityScan(basePackageClasses = {
-		DefaultDataLayerConfig.class
+		DataPackage.class
 })
 @EnableJpaRepositories(basePackageClasses = {
-		DefaultDataLayerConfig.class
+		DataPackage.class
 })
 public class DefaultDataLayerConfig {}

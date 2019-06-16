@@ -7,7 +7,12 @@ public class JwtToken {
     private String refreshToken;
 
     public JwtToken() {
-	super();
+		super();
+	}
+
+	public JwtToken(String accessToken, String refreshToken) {
+    	this.accessToken = accessToken;
+    	this.refreshToken = refreshToken;
     }
 
     public String getAccessToken() {
