@@ -1,4 +1,4 @@
-package com.marko.shop.service.shop.impl.util;
+package com.marko.shop.service.shop.impl;
 
 import java.util.List;
 

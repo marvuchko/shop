@@ -1,4 +1,4 @@
-package com.marko.shop.service.shop.impl.util;
+package com.marko.shop.service.shop.impl.price_corrector;
 
 import com.marko.shop.infrastructure.common.visitor.AbstractVisitor;
 import com.marko.shop.infrastructure.common.visitor.AbstractVisitorElement;

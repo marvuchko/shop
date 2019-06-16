@@ -1,4 +1,4 @@
-package com.marko.shop.service.shop.impl.util;
+package com.marko.shop.service.shop.impl.price_corrector;
 
 import com.marko.shop.data.shop.entity.ShopItem;
 import com.marko.shop.data.user.entity.User;

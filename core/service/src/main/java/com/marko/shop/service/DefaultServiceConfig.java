@@ -1,6 +1,6 @@
 package com.marko.shop.service;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -10,10 +10,9 @@ import org.springframework.context.annotation.Configuration;
 
 import com.marko.shop.infrastructure.common.util.DateUtil;
 import com.marko.shop.infrastructure.common.visitor.AbstractVisitor;
-import com.marko.shop.service.shop.impl.util.CreationDateShopItemPriceCorrector;
-import com.marko.shop.service.shop.impl.util.PriceManager;
-import com.marko.shop.service.shop.impl.util.RoleShopItemPriceCorrector;
-import com.marko.shop.service.shop.impl.util.ShopItemPriceCorrector;
+import com.marko.shop.service.shop.impl.PriceManager;
+import com.marko.shop.service.shop.impl.price_corrector.CreationDateShopItemPriceCorrector;
+import com.marko.shop.service.shop.impl.price_corrector.RoleShopItemPriceCorrector;
 
 @Configuration
 @ComponentScan(basePackageClasses = {
@@ -29,12 +28,13 @@ public class DefaultServiceConfig {
 
 	@Bean
 	public PriceManager priceManagerBean() {
-		ShopItemPriceCorrector rolePriceCorrector = new RoleShopItemPriceCorrector();
-		ShopItemPriceCorrector datePriceCorrector = new CreationDateShopItemPriceCorrector(
-				creationDateDiscountPercentage, DateUtil.addDays(-discountLastDays));
-		List<AbstractVisitor> correctors = new ArrayList<>();
-		correctors.add(rolePriceCorrector);
-		correctors.add(datePriceCorrector);
+		List<AbstractVisitor> correctors = Arrays.asList(
+				new RoleShopItemPriceCorrector(),
+				new CreationDateShopItemPriceCorrector(
+						creationDateDiscountPercentage,
+						DateUtil.addDays(-discountLastDays)
+				)
+		);
 		return new PriceManager(correctors);
 	}
 	
