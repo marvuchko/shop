@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Configuration;
 
 import com.marko.shop.infrastructure.common.util.DateUtil;
 import com.marko.shop.infrastructure.common.visitor.AbstractVisitor;
-import com.marko.shop.service.shop.impl.PriceManager;
+import com.marko.shop.service.shop.PriceManager;
+import com.marko.shop.service.shop.impl.DefaultPriceManager;
 import com.marko.shop.service.shop.impl.price_corrector.CreationDateShopItemPriceCorrector;
 import com.marko.shop.service.shop.impl.price_corrector.RoleShopItemPriceCorrector;
 
@@ -35,7 +36,7 @@ public class DefaultServiceConfig {
 						DateUtil.addDays(-discountLastDays)
 				)
 		);
-		return new PriceManager(correctors);
+		return new DefaultPriceManager(correctors);
 	}
 	
 }

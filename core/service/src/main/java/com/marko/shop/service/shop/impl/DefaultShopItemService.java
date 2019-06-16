@@ -17,6 +17,7 @@ import com.marko.shop.data.user.repository.UserRepository;
 import com.marko.shop.service.exception.EntityAlreadyExsistsException;
 import com.marko.shop.service.exception.EntityNotFoundException;
 import com.marko.shop.service.exception.UnprocessableEntityException;
+import com.marko.shop.service.shop.PriceManager;
 import com.marko.shop.service.shop.ShopItemService;
 import com.marko.shop.service.shop.impl.price_corrector.ItemWithUserAdapter;
 

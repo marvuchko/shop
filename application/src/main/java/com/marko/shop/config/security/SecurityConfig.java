@@ -1,4 +1,4 @@
-package com.marko.shop.api.security;
+package com.marko.shop.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +15,7 @@ import com.marko.shop.security.jwt.JwtTokenManager;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Value("${app.database-console}")
 	private String databaseConsole;
