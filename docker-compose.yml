@@ -2,7 +2,7 @@ version: '2'
 services:
   shop-api-server:
     container_name: 
-      config-server
+      shop-api-server
     build:
       context: .
     image: config-server:latest
