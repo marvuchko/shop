@@ -1,5 +1,7 @@
 package com.marko.shop.service.shop;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import com.marko.shop.data.shop.entity.ShopItem;
@@ -26,5 +28,14 @@ public interface ShopItemService {
 	 * @return new {@linkplain ShopItem}
 	 */
 	ShopItem create(ShopItem shopItem);
+	
+	/**
+	 * Fetches all shop items for a specified purchase list
+	 * 
+	 * @param purchaseListId id of the list
+	 * 
+	 * @return list of {@linkplain ShopItem}
+	 */
+	List<ShopItem> findAllInPurchaseList(Long purchaseListId);
 	
 }

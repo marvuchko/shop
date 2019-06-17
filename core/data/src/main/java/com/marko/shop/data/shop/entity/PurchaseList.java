@@ -7,15 +7,18 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "order_list")
+@Table(name = "purchase_list")
 public class PurchaseList extends Base {
 
     @ManyToOne
     @JoinColumn(name = "id_shop_user")
     private User user;
 
-    @OneToMany(mappedBy = "purchaseList")
-    private List<Purchase> orders;
+    @OneToMany(mappedBy = "purchaseList", cascade = {
+    		CascadeType.PERSIST,
+    		CascadeType.MERGE
+    })
+    private List<Purchase> purchases;
 
     private Float totalPrice;
 
@@ -31,15 +34,15 @@ public class PurchaseList extends Base {
         this.user = user;
     }
 
-    public List<Purchase> getOrders() {
-        return orders;
-    }
+    public List<Purchase> getPurchases() {
+		return purchases;
+	}
 
-    public void setOrders(List<Purchase> orders) {
-        this.orders = orders;
-    }
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
+	}
 
-    public Float getTotalPrice() {
+	public Float getTotalPrice() {
         return totalPrice;
     }
 

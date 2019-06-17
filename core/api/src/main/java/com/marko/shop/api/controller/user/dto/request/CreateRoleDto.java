@@ -4,16 +4,19 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(description = "Transfers data for user role createion.")
 public class CreateRoleDto {
 
 	@NotNull
 	@Size(min = 1, max = 120)
+	@ApiModelProperty("Caption of the role.")
 	private String caption;
 	
 	@NotNull
 	@Size(min = 1)
+	@ApiModelProperty("Description of the role.")
 	private String description;
 
 	public CreateRoleDto() {

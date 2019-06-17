@@ -53,7 +53,8 @@ public class DefaultApiConfig {
 	    return new Tag[] {
 	        new Tag("Authentication Controller", "Performs user login and registration."),
 	        new Tag("Role Controller", "Allows managing the data about user roles."),
-	        new Tag("Shop Item Controller", "Allows managing the data about shop items.")
+	        new Tag("Shop Item Controller", "Allows managing the data about shop items."),
+	        new Tag("Purchase Controller", "Allows users to purchase items and employees to see purchase lists.")
 	    };
 	}
 	

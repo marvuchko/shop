@@ -1,7 +1,11 @@
 package com.marko.shop.service.exception;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
 import com.marko.shop.infrastructure.common.exception.AbstractHttpException;
 
+@ResponseStatus(HttpStatus.UNAUTHORIZED)
 public class UnauthorizedUserException extends AbstractHttpException {
 
 	private static final long serialVersionUID = -4748347992620094414L;

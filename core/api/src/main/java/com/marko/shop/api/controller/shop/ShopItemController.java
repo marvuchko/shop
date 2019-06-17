@@ -1,7 +1,5 @@
 package com.marko.shop.api.controller.shop;
 
-import java.security.Principal;
-
 import javax.validation.Valid;
 
 import org.springframework.data.domain.Page;
@@ -55,7 +53,7 @@ public class ShopItemController {
 	@PreAuthorize("hasRole('EMPLOYEE') || hasRole('ADMIN')")
 	@ApiImplicitParam(name = "Authorization", value = "Access Token", required = true,
 	  				  allowEmptyValue = false, paramType = "header", example = "Bearer access_token")
-	@ApiOperation("Creates a new shop item.")
+	@ApiOperation("Creates a new shop item. Only ADMIN and EMPLOYEE can do this.")
 	public ShopItemDto create(
 			@Valid @RequestBody CreateShopItem dto
 	) {

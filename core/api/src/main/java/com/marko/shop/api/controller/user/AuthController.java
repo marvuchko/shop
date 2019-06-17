@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping("/auth")
 @Api(tags = "Authentication Controller")
 public class AuthController {
 
@@ -57,7 +57,7 @@ public class AuthController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@ApiImplicitParam(name = "Authorization", value = "Access Token", required = true,
 	  				  allowEmptyValue = false, paramType = "header", example = "Bearer access_token")
-	@ApiOperation("Registres a new employee into the system.")
+	@ApiOperation("Registres a new employee into the system. Only ADMIN can do this.")
 	public UserAuthDto registerEmployee(
 			@Valid @RequestBody CreateUserDto dto
 	) {

@@ -48,7 +48,7 @@ public class RoleController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@ApiImplicitParam(name = "Authorization", value = "Access Token", required = true,
 	  				  allowEmptyValue = false, paramType = "header", example = "Bearer access_token")
-	@ApiOperation("Creates new user role if not exsist.")
+	@ApiOperation("Creates new user role if not exsist. Only ADMIN can do this.")
 	public RoleDto createRole(@Valid @RequestBody CreateRoleDto dto) {
 		Role role = roleService.create((Role) DataConverter.convert(dto, Role.class));
 		return (RoleDto) DataConverter.convert(role, RoleDto.class);

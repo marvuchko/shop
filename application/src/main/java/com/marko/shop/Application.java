@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
-
+	
     private static Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
@@ -17,6 +17,6 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("Shopping application has started working!");
+        logger.info("Marko's shopping application has started working!");
     }
 }

@@ -22,9 +22,6 @@ import com.marko.shop.infrastructure.security.JwtClaimConstants;
 import com.marko.shop.security.jwt.JwtTokenManager;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.security.SignatureException;
 
 public class JwtFilter implements Filter {
 
@@ -72,7 +69,7 @@ public class JwtFilter implements Filter {
     				new UsernamePasswordAuthenticationToken(principal, null, authorities);
     		SecurityContextHolder.getContext().setAuthentication(authToken);
     		chain.doFilter(httpRequest, httpResponse);
-    	} catch(ExpiredJwtException | SignatureException | MalformedJwtException ex) {
+    	} catch(Exception ex) {
     		httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
     	}
     }
