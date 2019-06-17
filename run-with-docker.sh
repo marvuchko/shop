@@ -8,7 +8,7 @@ docker-compose down
 docker-compose up
 
 # Performe SonarQube code analysis
-./mvnw sonar:sonar -Dsonar.host.url=http://127.0.0.1:28004
+bash -lic ./mvnw sonar:sonar -Dsonar.host.url=http://127.0.0.1:28004
 
 # Check your browser:
 # REST API documentation:     http://localhost:28003/api/swagger-ui.html
