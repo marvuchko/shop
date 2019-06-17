@@ -5,7 +5,7 @@
 docker-compose down
 
 # Start the containers
-docker-compose up
+docker-compose up --build
 
 # Performe SonarQube code analysis
 bash -lic ./mvnw sonar:sonar -Dsonar.host.url=http://127.0.0.1:28004
