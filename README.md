@@ -77,7 +77,7 @@ To see all the possible
     }
     ```
 
-    **HTTP GET RESPONSE** will look like this.
+    **HTTP POST RESPONSE** will look like this.
 
     ```json
     {
