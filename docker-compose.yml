@@ -5,7 +5,7 @@ services:
       shop-api-server
     build:
       context: .
-    image: config-server:latest
+    image: shop-api-server:latest
     expose:
       - 28003
     ports: 
