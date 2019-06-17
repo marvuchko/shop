@@ -9,7 +9,7 @@
 ### Docker
 
 1. Make sure that you have Docker installed.
-2. if you are on *Linux / Mac OS* navigate to the projects folder <br>
+2. if you are on *Linux / Mac OS* navigate to the project folder <br>
     and type `sudo chmod 777 mvnw`
 3. Type then `sudo chmod 777 run-with-docker.sh`
 4. Execute`run-with-docker.sh`
@@ -32,8 +32,8 @@ The Simple shop REST API is a multi module monolithic application.
 | Module | Description |
 |------|--------|
 | `application` | Contains the Main class as well as environment configurations. |
-| `core` | Core features of the application. It has several submodules: *api, service, security, data* |
-| `infrastructure` | Contains the shared infrastructure modules that are included in every feature module including core features |
+| `core` | Core features of the application. It has several submodules: *api, service, security, data*. |
+| `infrastructure` | Contains the shared infrastructure modules that are included in every feature module including core modules. |
 
 ## Core modules
 
@@ -73,7 +73,7 @@ To see all the possible
         "lastName": "Vuckovic",
         "imageUrl": null,
         "password": "123",
-        "userName": "marvuchko"
+        "userName": "marko"
     }
     ```
 
