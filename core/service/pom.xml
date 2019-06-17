@@ -11,6 +11,12 @@
 		<artifactId>core</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
+	<properties>
+		<sonar.exclusions>
+			/service/exception/
+		</sonar.exclusions>
+	</properties>
 	
 	<dependencies>
 		<dependency>

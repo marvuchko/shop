@@ -14,7 +14,7 @@
 
 	<properties>
 		<sonar.exclusions>
-			**/security/*.java
+			/security/
 		</sonar.exclusions>
 	</properties>
 

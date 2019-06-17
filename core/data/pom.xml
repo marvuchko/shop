@@ -11,7 +11,7 @@
 
 	<properties>
 		<sonar.exclusions>
-			**/data/*.java
+			/data/
 		</sonar.exclusions>
 	</properties>
 
