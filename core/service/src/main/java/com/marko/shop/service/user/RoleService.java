@@ -1,8 +1,7 @@
 package com.marko.shop.service.user;
 
-import org.springframework.data.domain.Page;
-
 import com.marko.shop.data.user.entity.Role;
+import org.springframework.data.domain.Page;
 
 public interface RoleService {
 

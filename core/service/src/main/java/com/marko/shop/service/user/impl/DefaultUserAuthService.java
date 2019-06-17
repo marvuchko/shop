@@ -28,9 +28,6 @@ import com.marko.shop.service.user.impl.util.UserJwtUtil;
 import com.marko.shop.service.user.impl.util.UserValidationUtil;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.security.SignatureException;
 
 @Service
 public class DefaultUserAuthService implements UserAuthService {
@@ -61,6 +58,7 @@ public class DefaultUserAuthService implements UserAuthService {
 		User localUser = Optional.ofNullable(user)
 				.orElseThrow(() -> new UnprocessableEntityException("User is null!"));
 		UserValidationUtil.checkIfUsernameOrPasswordIsNull(user.getUserName(), user.getPassword());
+		Optional.ofNullable(type).orElseThrow(() -> new InvalidDataException("User type cannot be null!"));
 		if(userRepository.findByUserName(user.getUserName()).isPresent())
 			throw new EntityAlreadyExsistsException("User already exsits.");
 		localUser.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -95,7 +93,7 @@ public class DefaultUserAuthService implements UserAuthService {
 			List<String> userRoles = user.getRoles()
 					.stream().map(role -> role.getCaption().toUpperCase()).collect(Collectors.toList());
 			return UserJwtUtil.buildJwtToken(user, userRoles, jwtTokenManager);
-		} catch (ExpiredJwtException | SignatureException | MalformedJwtException ex) {
+		} catch (Exception ex) {
 			throw new AccessDeniedException(ex.getMessage());
 		}
 	}

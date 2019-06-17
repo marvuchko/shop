@@ -2,6 +2,7 @@ package com.marko.shop.service.shop;
 
 import java.util.List;
 
+import com.marko.shop.data.shop.entity.ShopItemType;
 import org.springframework.data.domain.Page;
 
 import com.marko.shop.data.shop.entity.ShopItem;
@@ -24,10 +25,12 @@ public interface ShopItemService {
 	 * Creates new shop item.
 	 * 
 	 * @param shopItem shop item that needs to be created.
+	 *
+	 * @param type type of the shop item.
 	 * 
 	 * @return new {@linkplain ShopItem}
 	 */
-	ShopItem create(ShopItem shopItem);
+	ShopItem create(ShopItem shopItem, ShopItemType type);
 	
 	/**
 	 * Fetches all shop items for a specified purchase list

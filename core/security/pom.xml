@@ -12,6 +12,12 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<sonar.exclusions>
+			**/security/*.java
+		</sonar.exclusions>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.marko</groupId>

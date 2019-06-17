@@ -52,6 +52,18 @@ public class AuthController {
 		User user = userAuthService.register((User) DataConverter.convert(dto, User.class), RoleType.USER);
 		return (UserAuthDto) DataConverter.convert(user, UserAuthDto.class);
 	}
+
+	@PostMapping("/affiliate/register")
+	@PreAuthorize("hasRole('ADMIN') || hasRole('EMPLOYEE')")
+	@ApiImplicitParam(name = "Authorization", value = "Access Token", required = true,
+					  allowEmptyValue = false, paramType = "header", example = "Bearer access_token")
+	@ApiOperation("Registres a new affiliate into the system.")
+	public UserAuthDto registerAffiliate(
+			@Valid @RequestBody CreateUserDto dto
+	) {
+		User user = userAuthService.register((User) DataConverter.convert(dto, User.class), RoleType.AFFILIATE);
+		return (UserAuthDto) DataConverter.convert(user, UserAuthDto.class);
+	}
 	
 	@PostMapping("/employee/register")
 	@PreAuthorize("hasRole('ADMIN')")

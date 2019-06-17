@@ -58,7 +58,6 @@ public class JwtFilter implements Filter {
     		Integer userId = (Integer) claims.get(JwtClaimConstants.USER_ID);
     		String userName = (String) claims.get(JwtClaimConstants.USER_NAME);
     		List<String> roles = (List<String>) claims.get(JwtClaimConstants.USER_ROLES);
-    		roles.forEach(role -> System.out.print("\n\n\n" + role + "\n\n\n"));
     		List<GrantedAuthority> authorities = roles.stream()
     				.map(role -> new SimpleGrantedAuthority("ROLE_" + role)).collect(Collectors.toList());
     		AuthenticatedUser principal = new AuthenticatedUser();

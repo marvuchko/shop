@@ -9,6 +9,12 @@
 	    <version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<sonar.exclusions>
+			**/data/*.java
+		</sonar.exclusions>
+	</properties>
+
 	<artifactId>data</artifactId>
 	<name>${project.artifactId}</name>
 

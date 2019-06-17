@@ -1,8 +1,10 @@
 package com.marko.shop.api.controller.shop.dto.request;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.marko.shop.data.shop.entity.ShopItemType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 

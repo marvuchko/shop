@@ -1,8 +1,7 @@
 version: '2'
 services:
   shop-api-server:
-    container_name: 
-      shop-api-server
+    container_name: shop-api-server
     build:
       context: .
     image: shop-api-server:latest
@@ -11,14 +10,10 @@ services:
     ports: 
       - "127.0.0.1:28003:28003"
     volumes:
-      shopp-app-volume:/var/lib/shopp-app-volume
+      - shopp-app-volume:/var/lib/shopp-app-volume
   sonarqube:
-    container_name: 
-      sonar-qube
-    image: 
-      sonarqube:latest
-    depends_on: 
-      shop-api-server
+    container_name: sonar-qube
+    image: sonarqube:latest
     expose:
       - 9000
     ports:

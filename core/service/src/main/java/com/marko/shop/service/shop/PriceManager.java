@@ -4,6 +4,6 @@ import com.marko.shop.infrastructure.common.visitor.AbstractVisitorElement;
 
 public interface PriceManager {
 
-	public void apply(AbstractVisitorElement element);
+	void apply(AbstractVisitorElement element);
 	
 }

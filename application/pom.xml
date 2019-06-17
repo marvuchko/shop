@@ -10,6 +10,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<sonar.exclusions>
+			**/Application.java,
+			**/config/security/*.java
+		</sonar.exclusions>
+	</properties>
+
 	<artifactId>application</artifactId>
 	<name>${project.artifactId}</name>
 

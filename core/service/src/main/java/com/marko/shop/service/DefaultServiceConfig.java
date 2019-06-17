@@ -3,6 +3,7 @@ package com.marko.shop.service;
 import java.util.Arrays;
 import java.util.List;
 
+import com.marko.shop.service.shop.impl.price_corrector.BillShopItemPriceCorrector;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -27,6 +28,12 @@ public class DefaultServiceConfig {
 	@Value("${app.discount-last-days}")
 	private Integer discountLastDays;
 
+	@Value("${app.bill-discount}")
+	private Float billDiscount;
+
+	@Value("${app.per-money-amount}")
+	private Float perMoneyAmmount;
+
 	@Bean
 	public PriceManager priceManagerBean() {
 		List<AbstractVisitor> correctors = Arrays.asList(
@@ -36,7 +43,8 @@ public class DefaultServiceConfig {
 						DateUtil.addDays(-discountLastDays)
 				)
 		);
-		return new DefaultPriceManager(correctors);
+		AbstractVisitor defaultCorrector = new BillShopItemPriceCorrector(billDiscount, perMoneyAmmount);
+		return new DefaultPriceManager(defaultCorrector, correctors);
 	}
 	
 }

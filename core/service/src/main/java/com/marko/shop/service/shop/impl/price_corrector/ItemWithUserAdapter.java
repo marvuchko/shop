@@ -20,7 +20,17 @@ public class ItemWithUserAdapter implements AbstractVisitorElement {
 	public void acceptVisitor(AbstractVisitor visitor) {
 		visitor.visit(this);
 	}
-	
+
+	@Override
+	public void setValue(Object value) {
+		shopItem.setPrice((Float) value);
+	}
+
+	@Override
+	public Object getValue() {
+		return shopItem.getPrice();
+	}
+
 	public ShopItem getShopItem() {
 		return shopItem;
 	}

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.marko.shop.data.shop.entity.ShopItemType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -53,13 +54,14 @@ public class DefaultShopItemService implements ShopItemService {
 
 	@Override
 	@Transactional
-	public ShopItem create(ShopItem shopItem) {
+	public ShopItem create(ShopItem shopItem, ShopItemType type) {
 		Optional.ofNullable(shopItem)
 			.orElseThrow(() -> new UnprocessableEntityException("Shop item is null!"));
 		Optional.ofNullable(shopItem.getName())
 			.orElseThrow(() -> new UnprocessableEntityException("Shop item name must be not null!"));
 		if(shopItemRepository.findByName(shopItem.getName()).isPresent())
 			throw new EntityAlreadyExsistsException("Specified shop item already exsists!");
+		shopItem.setType(type.getType());
 		return shopItemRepository.save(shopItem);
 	}
 

@@ -2,6 +2,7 @@ package com.marko.shop.api.controller.shop;
 
 import javax.validation.Valid;
 
+import com.marko.shop.data.shop.entity.ShopItemType;
 import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -49,15 +50,27 @@ public class ShopItemController {
 				.convertToPage(shopItemService.findAll(page, size, authUser.getUserId()), ShopItemDto.class);
 	}
 	
-	@PostMapping
+	@PostMapping("/groceries")
 	@PreAuthorize("hasRole('EMPLOYEE') || hasRole('ADMIN')")
 	@ApiImplicitParam(name = "Authorization", value = "Access Token", required = true,
 	  				  allowEmptyValue = false, paramType = "header", example = "Bearer access_token")
-	@ApiOperation("Creates a new shop item. Only ADMIN and EMPLOYEE can do this.")
-	public ShopItemDto create(
+	@ApiOperation("Create groceries shop item. Only ADMIN and EMPLOYEE can do this.")
+	public ShopItemDto createGroceries(
 			@Valid @RequestBody CreateShopItem dto
 	) {
-		ShopItem shopItem = shopItemService.create((ShopItem) DataConverter.convert(dto, ShopItem.class));
+		ShopItem shopItem = shopItemService.create((ShopItem) DataConverter.convert(dto, ShopItem.class), ShopItemType.GROCERIES);
+		return (ShopItemDto) DataConverter.convert(shopItem, ShopItemDto.class);
+	}
+
+	@PostMapping("/other")
+	@PreAuthorize("hasRole('EMPLOYEE') || hasRole('ADMIN')")
+	@ApiImplicitParam(name = "Authorization", value = "Access Token", required = true,
+			allowEmptyValue = false, paramType = "header", example = "Bearer access_token")
+	@ApiOperation("Create groceries shop item. Only ADMIN and EMPLOYEE can do this.")
+	public ShopItemDto createOtherItems(
+			@Valid @RequestBody CreateShopItem dto
+	) {
+		ShopItem shopItem = shopItemService.create((ShopItem) DataConverter.convert(dto, ShopItem.class), ShopItemType.OTHER);
 		return (ShopItemDto) DataConverter.convert(shopItem, ShopItemDto.class);
 	}
 	

@@ -17,6 +17,9 @@ public class ShopItemDto {
 	
 	@ApiModelProperty("Name of the shop item. Must be unique.")
 	private String name;
+
+	@ApiModelProperty("Type of the shop item. Can be GROCERIES or OTHER")
+	private String type;
 	
 	@ApiModelProperty("Detailed description of the shop item.")
 	private String description;
@@ -51,6 +54,14 @@ public class ShopItemDto {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getDescription() {

@@ -12,10 +12,25 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<sonar.exclusions>
+			**/data/*.java
+		</sonar.exclusions>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
 		</dependency>
 	</dependencies>
 
