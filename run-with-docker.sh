@@ -17,3 +17,5 @@ bash -lic ./mvnw sonar:sonar -Dsonar.host.url=http://127.0.0.1:28004
 #                             username: marko
 #                             password: marko
 # SonarQube:                  http://localhost:28004
+#                             username: admin
+#                             password: admin
