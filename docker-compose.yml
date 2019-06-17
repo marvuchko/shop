@@ -1,0 +1,36 @@
+version: '2'
+services:
+  shop-api-server:
+    container_name: 
+      config-server
+    build:
+      context: .
+    image: config-server:latest
+    expose:
+      - 28003
+    ports: 
+      - "127.0.0.1:28003:28003"
+    volumes:
+      shopp-app-volume:/var/lib/shopp-app-volume
+  sonarqube:
+    container_name: 
+      sonar-qube
+    image: 
+      sonarqube:latest
+    depends_on: 
+      shop-api-server
+    expose:
+      - 9000
+    ports:
+      - "127.0.0.1:28004:9000"
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+volumes:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_bundled-plugins:
+  shopp-app-volume:
